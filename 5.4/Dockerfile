@@ -77,4 +77,6 @@ RUN  \
       phpcbf --version && \
       phpcb --version && \
       phpunit --version && \
-      php-cs-fixer --version
+      php-cs-fixer --version && \
+      phpdox --version && \
+      phpdcd --version
