@@ -64,8 +64,8 @@ RUN mkdir -p /etc/phpcs && \
     git clone git://github.com/escapestudios/Symfony2-coding-standard.git /etc/phpcs/Symfony2-coding-standard && \
     /usr/local/bin/phpcs --config-set installed_paths /etc/phpcs/Symfony2-coding-standard
 
-COPY php-ci.ini    /etc/php/7.0/fpm/conf.d/
-COPY php-ci.ini    /etc/php/7.0/cli/conf.d/
+COPY php-ci.ini    /etc/php/7.0/fpm/conf.d/20-php-ci.ini
+COPY php-ci.ini    /etc/php/7.0/cli/conf.d/20-php-ci.ini
 
 RUN  \
       #phpDocumentor --version && \
@@ -77,4 +77,6 @@ RUN  \
       phpcbf --version && \
       phpcb --version && \
       phpunit --version && \
-      php-cs-fixer --version
+      php-cs-fixer --version && \
+      phpdox --version && \
+      phpdcd --version
