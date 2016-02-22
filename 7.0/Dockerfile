@@ -42,6 +42,16 @@ RUN wget -c https://github.com/bytepark/php-phar-qatools/raw/master/phpcb.phar \
       ln -s /usr/local/bin/phpcb.phar /usr/local/bin/phpcb && \
       chmod a+x /usr/local/bin/phpcb
 
+RUN wget -c https://github.com/bytepark/php-phar-qatools/raw/master/phpdcd.phar \
+      -P /usr/local/bin/ && \
+      ln -s /usr/local/bin/phpdcd.phar /usr/local/bin/phpdcd && \
+      chmod a+x /usr/local/bin/phpdcd
+
+RUN wget -c https://github.com/bytepark/php-phar-qatools/raw/master/phpdox.phar \
+      -P /usr/local/bin/ && \
+      ln -s /usr/local/bin/phpdox.phar /usr/local/bin/phpdox && \
+      chmod a+x /usr/local/bin/phpdox
+
 RUN wget -c https://phar.phpunit.de/phpunit.phar \
       -P /usr/local/bin/ && \
       ln -s /usr/local/bin/phpunit.phar /usr/local/bin/phpunit && \
@@ -61,8 +71,8 @@ RUN  \
       #phpDocumentor --version && \
       phpcpd --version && \
       phploc --version && \
-      # phpmd --version && \
-      # pdepend --version && \
+      phpmd --version && \
+      pdepend --version && \
       phpcs --version && \
       phpcbf --version && \
       phpcb --version && \
