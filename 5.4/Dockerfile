@@ -76,3 +76,5 @@ RUN  \
       php-cs-fixer --version && \
       phpdox --version && \
       phpdcd --version
+
+ENTRYPOINT []
