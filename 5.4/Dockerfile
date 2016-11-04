@@ -65,7 +65,6 @@ COPY php-ci.ini    /etc/php5/fpm/conf.d/
 COPY php-ci.ini    /etc/php5/cli/conf.d/
 
 RUN  \
-      phpDocumentor --version && \
       phpcpd --version && \
       phploc --version && \
       phpmd --version && \
