@@ -2,11 +2,6 @@ FROM yappabe/php:5.3
 
 ENV ENVIRONMENT ci
 
-RUN wget -c http://www.phpdoc.org/phpDocumentor.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpDocumentor.phar /usr/local/bin/phpDocumentor && \
-      chmod a+x /usr/local/bin/phpDocumentor
-
 RUN wget -c https://phar.phpunit.de/phpcpd.phar \
       -P /usr/local/bin/ && \
       ln -s /usr/local/bin/phpcpd.phar /usr/local/bin/phpcpd && \
@@ -56,7 +51,6 @@ RUN mkdir -p /etc/phpcs && \
 
 
 RUN  \
-      phpDocumentor --version && \
       phpcpd --version && \
       #phploc --version && \
       phpmd --version && \
