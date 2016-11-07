@@ -79,3 +79,5 @@ RUN  \
       phpcb --version && \
       phpunit --version && \
       php-cs-fixer --version
+
+ENTRYPOINT []
