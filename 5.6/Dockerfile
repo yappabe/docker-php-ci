@@ -2,6 +2,8 @@ FROM yappabe/php:5.6
 
 ENV ENVIRONMENT ci
 
+RUN apt-get install -y php5-xdebug
+
 RUN wget -c http://www.phpdoc.org/phpDocumentor.phar \
       -P /usr/local/bin/ && \
       ln -s /usr/local/bin/phpDocumentor.phar /usr/local/bin/phpDocumentor && \

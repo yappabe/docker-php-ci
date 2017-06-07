@@ -2,6 +2,8 @@ FROM yappabe/php:5.3
 
 ENV ENVIRONMENT ci
 
+RUN apt-get install -y php5-xdebug
+
 RUN wget -c https://phar.phpunit.de/phpcpd.phar \
       -P /usr/local/bin/ && \
       ln -s /usr/local/bin/phpcpd.phar /usr/local/bin/phpcpd && \
