@@ -2,7 +2,7 @@ FROM yappabe/php:7.2
 
 ENV ENVIRONMENT ci
 
-RUN apt-get install -y php7.2-xdebug
+# RUN apt-get install -y php7.2-xdebug
 
 RUN wget -c http://www.phpdoc.org/phpDocumentor.phar \
       -P /usr/local/bin/ && \
