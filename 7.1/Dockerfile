@@ -2,7 +2,7 @@ FROM yappabe/php:7.1
 
 ENV ENVIRONMENT ci
 
-RUN apt-get install -y php7.1-xdebug
+RUN apt-get install -y php-xdebug
 
 RUN wget -c http://www.phpdoc.org/phpDocumentor.phar \
       -P /usr/local/bin/ && \
