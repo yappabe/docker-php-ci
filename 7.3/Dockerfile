@@ -2,6 +2,8 @@ FROM yappabe/php:7.3
 
 ENV ENVIRONMENT ci
 
+RUN pecl install xdebug
+
 RUN wget -c https://phar.phpunit.de/phploc.phar \
       -P /usr/local/bin/ && \
       ln -s /usr/local/bin/phploc.phar /usr/local/bin/phploc && \
