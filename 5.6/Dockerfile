@@ -2,32 +2,13 @@ FROM yappabe/php:5.6
 
 ENV ENVIRONMENT ci
 
-RUN apt-get install -y php5-xdebug
+RUN apt-get update && \
+    apt-get install -y php5-xdebug
 
-RUN wget -c http://www.phpdoc.org/phpDocumentor.phar \
+RUN wget -c https://phar.phpunit.de/phploc-4.0.1.phar \
       -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpDocumentor.phar /usr/local/bin/phpDocumentor && \
-      chmod a+x /usr/local/bin/phpDocumentor
-
-RUN wget -c https://phar.phpunit.de/phpcpd.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpcpd.phar /usr/local/bin/phpcpd && \
-      chmod a+x /usr/local/bin/phpcpd
-
-RUN wget -c https://phar.phpunit.de/phploc.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phploc.phar /usr/local/bin/phploc && \
+      ln -s /usr/local/bin/phploc-4.0.1.phar /usr/local/bin/phploc && \
       chmod a+x /usr/local/bin/phploc
-
-RUN wget -c http://static.phpmd.org/php/latest/phpmd.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpmd.phar /usr/local/bin/phpmd && \
-      chmod a+x /usr/local/bin/phpmd
-
-RUN wget -c http://static.pdepend.org/php/latest/pdepend.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/pdepend.phar /usr/local/bin/pdepend && \
-      chmod a+x /usr/local/bin/pdepend
 
 RUN wget -c https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
       -P /usr/local/bin/ && \
@@ -44,20 +25,10 @@ RUN wget -c https://github.com/bytepark/php-phar-qatools/raw/master/phpcb.phar \
       ln -s /usr/local/bin/phpcb.phar /usr/local/bin/phpcb && \
       chmod a+x /usr/local/bin/phpcb
 
-RUN wget -c https://github.com/bytepark/php-phar-qatools/raw/master/phpdcd.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpdcd.phar /usr/local/bin/phpdcd && \
-      chmod a+x /usr/local/bin/phpdcd
 
-RUN wget -c https://github.com/bytepark/php-phar-qatools/raw/master/phpdox.phar \
+RUN wget -c https://phar.phpunit.de/phpunit-5.7.27.phar \
       -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpdox.phar /usr/local/bin/phpdox && \
-      chmod a+x /usr/local/bin/phpdox
-
-
-RUN wget -c https://phar.phpunit.de/phpunit.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpunit.phar /usr/local/bin/phpunit && \
+      ln -s /usr/local/bin/phpunit-5.7.27.phar /usr/local/bin/phpunit && \
       chmod a+x /usr/local/bin/phpunit
 
 ADD http://get.sensiolabs.org/php-cs-fixer.phar /usr/local/bin/php-cs-fixer
@@ -71,11 +42,7 @@ COPY php-ci.ini    /etc/php5/fpm/conf.d/
 COPY php-ci.ini    /etc/php5/cli/conf.d/
 
 RUN  \
-      phpDocumentor --version && \
-      phpcpd --version && \
       phploc --version && \
-      phpmd --version && \
-      pdepend --version && \
       phpcs --version && \
       phpcbf --version && \
       phpcb --version && \

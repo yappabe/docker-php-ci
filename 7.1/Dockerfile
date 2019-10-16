@@ -2,11 +2,11 @@ FROM yappabe/php:7.1
 
 ENV ENVIRONMENT ci
 
-RUN apt-get install -y php-xdebug
+RUN pecl install xdebug
 
-RUN wget -c https://phar.phpunit.de/phploc.phar \
+RUN wget -c https://phar.phpunit.de/phploc-4.0.1.phar \
       -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phploc.phar /usr/local/bin/phploc && \
+      ln -s /usr/local/bin/phploc-4.0.1.phar /usr/local/bin/phploc && \
       chmod a+x /usr/local/bin/phploc
 
 RUN wget -c https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
@@ -32,7 +32,6 @@ COPY php-ci.ini    /etc/php/7.1/cli/conf.d/20-php-ci.ini
 RUN  \
       phploc --version && \
       phpcs --version && \
-      phpunit --version && \
       php-cs-fixer --version
 
 ENTRYPOINT []
