@@ -14,11 +14,6 @@ RUN wget -c https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
       ln -s /usr/local/bin/phpcs.phar /usr/local/bin/phpcs && \
       chmod a+x /usr/local/bin/phpcs
 
-RUN wget -c https://phar.phpunit.de/phpunit.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phpunit.phar /usr/local/bin/phpunit && \
-      chmod a+x /usr/local/bin/phpunit
-
 ADD https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.15.0/php-cs-fixer.phar /usr/local/bin/php-cs-fixer
 RUN chmod a+x /usr/local/bin/php-cs-fixer
 
@@ -32,7 +27,6 @@ COPY php-ci.ini    /etc/php/7.2/cli/conf.d/20-php-ci.ini
 RUN  \
       phploc --version && \
       phpcs --version && \
-      phpunit --version && \
       php-cs-fixer --version
 
 ENTRYPOINT []
