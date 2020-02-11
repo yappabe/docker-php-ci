@@ -2,6 +2,7 @@ FROM yappabe/php:7.1
 
 ENV ENVIRONMENT ci
 
+RUN pecl channel-update pecl.php.net
 RUN pecl install pcov
 
 RUN wget -c https://phar.phpunit.de/phploc-4.0.1.phar \
@@ -28,6 +29,9 @@ RUN mkdir -p /etc/phpcs && \
 
 COPY php-ci.ini    /etc/php/7.1/fpm/conf.d/20-php-ci.ini
 COPY php-ci.ini    /etc/php/7.1/cli/conf.d/20-php-ci.ini
+
+COPY 20-pcov.ini /etc/php/7.1/fpm/conf.d/20-pcov.ini
+COPY 20-pcov.ini /etc/php/7.1/fpm/conf.d/20-pcov.ini
 
 RUN  \
       phploc --version && \
