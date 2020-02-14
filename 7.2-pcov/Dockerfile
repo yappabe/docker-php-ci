@@ -27,6 +27,7 @@ COPY php-ci.ini    /etc/php/7.2/cli/conf.d/20-php-ci.ini
 RUN  \
       phploc --version && \
       phpcs --version && \
-      php-cs-fixer --version
+      php-cs-fixer --version && \
+      php -i | grep 'pcov'
 
 ENTRYPOINT []
