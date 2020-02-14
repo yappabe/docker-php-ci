@@ -24,6 +24,9 @@ RUN mkdir -p /etc/phpcs && \
 COPY php-ci.ini    /etc/php/7.3/fpm/conf.d/20-php-ci.ini
 COPY php-ci.ini    /etc/php/7.3/cli/conf.d/20-php-ci.ini
 
+COPY 20-pcov.ini /etc/php/7.1/fpm/conf.d/20-pcov.ini
+COPY 20-pcov.ini /etc/php/7.1/cli/conf.d/20-pcov.ini
+
 RUN  \
       phploc --version && \
       phpcs --version && \
