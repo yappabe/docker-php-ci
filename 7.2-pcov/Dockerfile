@@ -24,9 +24,13 @@ RUN mkdir -p /etc/phpcs && \
 COPY php-ci.ini    /etc/php/7.2/fpm/conf.d/20-php-ci.ini
 COPY php-ci.ini    /etc/php/7.2/cli/conf.d/20-php-ci.ini
 
+COPY 20-pcov.ini /etc/php/7.2/fpm/conf.d/20-pcov.ini
+COPY 20-pcov.ini /etc/php/7.2/cli/conf.d/20-pcov.ini
+
 RUN  \
       phploc --version && \
       phpcs --version && \
-      php-cs-fixer --version
+      php-cs-fixer --version && \
+      php -i | grep 'pcov'
 
 ENTRYPOINT []
