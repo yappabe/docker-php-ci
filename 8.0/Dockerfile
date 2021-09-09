@@ -14,7 +14,7 @@ RUN wget -c https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
       ln -s /usr/local/bin/phpcs.phar /usr/local/bin/phpcs && \
       chmod a+x /usr/local/bin/phpcs
 
-ADD https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.0.2/php-cs-fixer.phar /usr/local/bin/php-cs-fixer
+ADD https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.1.0/php-cs-fixer.phar /usr/local/bin/php-cs-fixer
 RUN chmod a+x /usr/local/bin/php-cs-fixer
 
 RUN mkdir -p /etc/phpcs && \
