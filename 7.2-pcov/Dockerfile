@@ -8,11 +8,6 @@ RUN \
   wget \
   php-pcov
 
-RUN wget -c https://phar.phpunit.de/phploc.phar \
-      -P /usr/local/bin/ && \
-      ln -s /usr/local/bin/phploc.phar /usr/local/bin/phploc && \
-      chmod a+x /usr/local/bin/phploc
-
 RUN wget -c https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
       -P /usr/local/bin/ && \
       ln -s /usr/local/bin/phpcs.phar /usr/local/bin/phpcs && \
@@ -32,7 +27,6 @@ COPY 20-pcov.ini /etc/php/7.2/fpm/conf.d/20-pcov.ini
 COPY 20-pcov.ini /etc/php/7.2/cli/conf.d/20-pcov.ini
 
 RUN  \
-      phploc --version && \
       phpcs --version && \
       php-cs-fixer --version && \
       php -i | grep 'pcov'

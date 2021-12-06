@@ -17,8 +17,6 @@ The following PHP versions are available:
 * PHP 7.1 (bullseye stable)
 * PHP 7.0 (jessie oldstable)
 * PHP 5.6 (jessie oldstable)
-* PHP 5.4 (jessie oldstable)
-* PHP 5.3 (jessie oldstable)
 
 ## PCOV extension
 
