@@ -2,7 +2,11 @@ FROM yappabe/php:7.1
 
 ENV ENVIRONMENT ci
 
-RUN pecl install xdebug
+RUN \
+  apt-get update && \
+  apt-get install -y --no-install-recommends \
+  wget \
+  php-xdebug
 
 RUN wget -c https://phar.phpunit.de/phploc-4.0.1.phar \
       -P /usr/local/bin/ && \
@@ -29,9 +33,13 @@ RUN mkdir -p /etc/phpcs && \
 COPY php-ci.ini    /etc/php/7.1/fpm/conf.d/20-php-ci.ini
 COPY php-ci.ini    /etc/php/7.1/cli/conf.d/20-php-ci.ini
 
+COPY 20-xdebug.ini /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+COPY 20-xdebug.ini /etc/php/7.1/cli/conf.d/20-xdebug.ini
+
 RUN  \
       phploc --version && \
       phpcs --version && \
-      php-cs-fixer --version
+      php-cs-fixer --version && \
+      php -i | grep 'xdebug'
 
 ENTRYPOINT []

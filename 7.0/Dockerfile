@@ -2,8 +2,11 @@ FROM yappabe/php:7.0
 
 ENV ENVIRONMENT ci
 
-RUN apt-get update && \
-    apt-get install -y php7.0-xdebug
+RUN \
+  apt-get update && \
+  apt-get install -y --no-install-recommends \
+  wget \
+  php7.0-xdebug
 
 RUN wget -c https://phar.phpunit.de/phploc-4.0.1.phar \
       -P /usr/local/bin/ && \

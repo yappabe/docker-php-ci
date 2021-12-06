@@ -2,8 +2,11 @@ FROM yappabe/php:7.1
 
 ENV ENVIRONMENT ci
 
-RUN pecl channel-update pecl.php.net
-RUN pecl install pcov
+RUN \
+  apt-get update && \
+  apt-get install -y --no-install-recommends \
+  wget \
+  php-pcov
 
 RUN wget -c https://phar.phpunit.de/phploc-4.0.1.phar \
       -P /usr/local/bin/ && \
