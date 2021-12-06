@@ -28,9 +28,6 @@ RUN mkdir -p /etc/phpcs && \
 COPY php-ci.ini    /etc/php/7.4/fpm/conf.d/20-php-ci.ini
 COPY php-ci.ini    /etc/php/7.4/cli/conf.d/20-php-ci.ini
 
-COPY 20-xdebug.ini /etc/php/7.4/fpm/conf.d/20-xdebug.ini
-COPY 20-xdebug.ini /etc/php/7.4/cli/conf.d/20-xdebug.ini
-
 RUN  \
       phploc --version && \
       phpcs --version && \
