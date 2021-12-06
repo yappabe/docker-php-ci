@@ -6,7 +6,7 @@ RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
   wget \
-  php-xdebug
+  php7.4-xdebug
 
 RUN wget -c https://phar.phpunit.de/phploc.phar \
       -P /usr/local/bin/ && \

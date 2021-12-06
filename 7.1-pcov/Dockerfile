@@ -6,7 +6,7 @@ RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
   wget \
-  php-pcov
+  php7.1-pcov
 
 RUN wget -c https://phar.phpunit.de/phploc-4.0.1.phar \
       -P /usr/local/bin/ && \

@@ -6,7 +6,7 @@ RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
   wget \
-  php-pcov
+  php7.2-pcov
 
 RUN wget -c https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
       -P /usr/local/bin/ && \

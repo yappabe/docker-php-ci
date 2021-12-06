@@ -6,7 +6,7 @@ RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
   wget \
-  php-pcov
+  php8.0-pcov
 
 COPY php-ci.ini /etc/php/8.0/fpm/conf.d/20-php-ci.ini
 COPY php-ci.ini /etc/php/8.0/cli/conf.d/20-php-ci.ini
