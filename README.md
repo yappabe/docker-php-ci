@@ -1,13 +1,13 @@
 ![Docker pulls](https://img.shields.io/docker/pulls/yappabe/php-ci.svg?style=flat)
 # Yappa PHP CI Image
 
-## PHP version
+## XDEBUG extension
 
 To use a specific PHP version, append the version number to the image name.
 
 Eg: `image: yappabe/php-ci:8.1`
 
-The following PHP versions are available:
+The following PHP versions are available with *xdebug* extension:
 
 * PHP 8.1 (bullseye stable)
 * PHP 8.0 (bullseye stable)
@@ -23,7 +23,6 @@ The following PHP versions are available:
 To use a specific PHP version, append the version number to the image name.
 
 Eg: `image: yappabe/php-ci:8.1-pcov`
-
 
 The following PHP versions are available with pcov extension:
 

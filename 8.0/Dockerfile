@@ -1,4 +1,4 @@
-FROM yappabe/php:8.1
+FROM yappabe/php:8.0
 
 ENV ENVIRONMENT ci
 
