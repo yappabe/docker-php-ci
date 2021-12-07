@@ -36,4 +36,4 @@ jobs:
         with:
           context: ${{ matrix.php_version }}/
           push: true
-          tags: ${{ secrets.DOCKER_HUB_NAMESPACE }}/php:${{ matrix.php_version }}
+          tags: ${{ secrets.DOCKER_HUB_NAMESPACE }}/php-ci:${{ matrix.php_version }}
