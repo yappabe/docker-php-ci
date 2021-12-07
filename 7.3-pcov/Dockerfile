@@ -2,7 +2,11 @@ FROM yappabe/php:7.3
 
 ENV ENVIRONMENT ci
 
-RUN pecl install pcov
+RUN \
+  apt-get update && \
+  apt-get install -y --no-install-recommends \
+  wget \
+  php7.3-pcov
 
 RUN wget -c https://phar.phpunit.de/phploc.phar \
       -P /usr/local/bin/ && \

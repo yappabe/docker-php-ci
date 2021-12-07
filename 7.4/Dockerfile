@@ -2,7 +2,11 @@ FROM yappabe/php:7.4
 
 ENV ENVIRONMENT ci
 
-RUN pecl install xdebug
+RUN \
+  apt-get update && \
+  apt-get install -y --no-install-recommends \
+  wget \
+  php7.4-xdebug
 
 RUN wget -c https://phar.phpunit.de/phploc.phar \
       -P /usr/local/bin/ && \
@@ -21,12 +25,13 @@ RUN mkdir -p /etc/phpcs && \
     git clone git://github.com/escapestudios/Symfony2-coding-standard.git /etc/phpcs/Symfony2-coding-standard && \
     /usr/local/bin/phpcs --config-set installed_paths /etc/phpcs/Symfony2-coding-standard
 
-COPY php-ci.ini    /etc/php/7.3/fpm/conf.d/20-php-ci.ini
-COPY php-ci.ini    /etc/php/7.3/cli/conf.d/20-php-ci.ini
+COPY php-ci.ini    /etc/php/7.4/fpm/conf.d/20-php-ci.ini
+COPY php-ci.ini    /etc/php/7.4/cli/conf.d/20-php-ci.ini
 
 RUN  \
       phploc --version && \
       phpcs --version && \
-      php-cs-fixer --version
+      php-cs-fixer --version && \
+      php -i | grep 'xdebug'
 
 ENTRYPOINT []
