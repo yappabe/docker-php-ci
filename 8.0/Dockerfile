@@ -5,7 +5,7 @@ ENV ENVIRONMENT ci
 RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
-  php-xdebug
+  php8.0-xdebug
 
 COPY php-ci.ini    /etc/php/8.0/fpm/conf.d/20-php-ci.ini
 COPY php-ci.ini    /etc/php/8.0/cli/conf.d/20-php-ci.ini
